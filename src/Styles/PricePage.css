@@ -1,0 +1,32 @@
+.parentOfPricePage {
+  text-align: left;
+  line-height: 5vh;
+  margin: 40px 10px 0px 10px;
+  background: rgba(0, 0, 0, 0.884);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.parentforpricecard {
+  display: flex;
+  margin: 10px;
+  color: white;
+  font-size: 18px;
+}
+
+.childOneForpricecard {
+  width: 50%;
+  /* background: yellow; */
+}
+.childTwoForpricecard {
+  width: 50%;
+  /* background: rgb(247, 0, 255); */
+  text-align: right;
+}
+
+.Seconddivparentforpricecard {
+  display: flex;
+  margin: 10px;
+  color: #5e472f;
+  font-size: 18px;
+}

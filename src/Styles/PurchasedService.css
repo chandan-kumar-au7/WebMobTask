@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.parentOfPurchpage {
+  text-align: left;
+  line-height: 5vh;
+  margin: 10px;
+}
