@@ -1,6 +1,11 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  max-width: 100%;
+}
+
 .homeDiv {
   border: 15px solid rgba(95, 94, 94, 0.479);
   height: auto;
-
   padding-bottom: 40px;
 }
