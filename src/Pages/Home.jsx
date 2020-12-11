@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../Styles/home.css";
 import "../Styles/PricePage.css";
 
@@ -9,11 +9,10 @@ import Card from "../Components/Card";
 const HomePage = () => {
   const [pData, setpData] = useState([]);
   const [aData, setaData] = useState([]);
-  const [totalPrice, settotalPrice] = useState(0);
+  const total = useRef(0);
 
   let newPDATA = [];
   let newADATA = [];
-  let total = 0;
 
   const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
   const URL = "https://fir-dynamiclinks-e43dd.web.app/practical-api.json";
@@ -51,15 +50,13 @@ const HomePage = () => {
                 data[i].purchased_office_template.purchased_office_services[j]
               );
 
-              total =
-                total +
+              total.current =
+                total.current +
                 Number(
                   data[i].purchased_office_template.purchased_office_services[j]
                     .price
                 );
             }
-
-            settotalPrice(total);
 
             if (
               data[i].purchased_office_template.purchased_office_services[j]
@@ -154,7 +151,7 @@ const HomePage = () => {
               <h2 className="childOneForpricecard">
                 <b> Total Costing : </b>
               </h2>
-              <h2 className="childTwoForpricecard">Rs. {totalPrice}.00 ,-</h2>
+              <h2 className="childTwoForpricecard">Rs. {total.current}.00,-</h2>
             </div>
           </div>
         </div>
