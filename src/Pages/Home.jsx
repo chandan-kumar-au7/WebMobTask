@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../Styles/home.css";
-import "../Styles/PurchasedService.css";
 import "../Styles/PricePage.css";
 
 import axios from "axios";
@@ -111,57 +110,58 @@ const HomePage = () => {
   return (
     <div className="homeDiv">
       {/* {{{{{{{{{{}}}}}}}}}} Purchased Services from here {{{{{{{{{{}}}}}}}}}} */}
-      <div className="parentOfPurchpage">
-        <h2 className="PURCHASEDh2">PURCHASED SERVICES</h2>
-        <p>Showing Purchased Services List</p>
-        <div>
-          {pData.map((pData11, key) => {
-            // console.log("pData11 ", pData11);
+      <div className="purchasedivandpricetogether">
+        <div className="parentOfPurchpage">
+          <h2 className="PURCHASEDh2">PURCHASED SERVICES</h2>
+          <p>Showing Purchased Services List</p>
+          <div>
+            {pData.map((pData11, key) => {
+              // console.log("pData11 ", pData11);
+
+              return (
+                <Card
+                  key={key}
+                  mainServiceName={pData11.mainServiceName}
+                  src={pData11.image}
+                  srcAlt={pData11.name}
+                  subServiceName={pData11.name}
+                  description={pData11.description}
+                  price={pData11.price}
+                />
+              );
+            })}
+          </div>
+        </div>
+        {/* {{{{{{{{{{}}}}}}}}}} End Of Purchased Services from here {{{{{{{{{{}}}}}}}}}} */}
+
+        <div className="parentOfPricePage">
+          {pData.map((ppData, key) => {
+            // console.log("ppData ", ppData);
+            // console.log("totalPrice ====> ", totalPrice);
 
             return (
-              <Card
-                key={key}
-                mainServiceName={pData11.mainServiceName}
-                src={pData11.image}
-                srcAlt={pData11.name}
-                subServiceName={pData11.name}
-                description={pData11.description}
-                price={pData11.price}
-              />
+              <div className="parentforpricecard" key={key}>
+                <p className="childOneForpricecard">
+                  <b> {ppData.name} </b>
+                </p>
+                <h3 className="childTwoForpricecard"> Rs. {ppData.price},-</h3>
+              </div>
             );
           })}
-        </div>
-      </div>
-      {/* {{{{{{{{{{}}}}}}}}}} End Of Purchased Services from here {{{{{{{{{{}}}}}}}}}} */}
-
-      <div className="parentOfPricePage">
-        {pData.map((ppData, key) => {
-          // console.log("ppData ", ppData);
-          // console.log("totalPrice ====> ", totalPrice);
-
-          return (
-            <div className="parentforpricecard" key={key}>
-              <p className="childOneForpricecard">
-                <b> {ppData.name} </b>
-              </p>
-              <h3 className="childTwoForpricecard"> Rs. {ppData.price},-</h3>
+          <hr />
+          <div>
+            <div className="Seconddivparentforpricecard">
+              <h2 className="childOneForpricecard">
+                <b> Total Costing : </b>
+              </h2>
+              <h2 className="childTwoForpricecard">Rs. {totalPrice}.00 ,-</h2>
             </div>
-          );
-        })}
-        <hr />
-        <div>
-          <div className="Seconddivparentforpricecard">
-            <p className="childOneForpricecard">
-              <b> Total Costing : </b>
-            </p>
-            <h3 className="childTwoForpricecard">Rs. {totalPrice},-</h3>
           </div>
         </div>
       </div>
-
       {/* {{{{{{{{{{}}}}}}}}}} Additional Services from here {{{{{{{{{{}}}}}}}}}} */}
 
-      <div className="parentOfPurchpage">
+      <div className="parentOfPurchpage additionalDiv">
         <h2 className="PURCHASEDh2">ADDITIONAL SERVICES</h2>
         <p>Showing Additional Services List</p>
         <div>
